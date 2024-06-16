@@ -9,12 +9,12 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 @Component
 public class PdfUtil {
+
     private static String htmlToXhtml(String html) {
         // Convert HTML to XHTML
         Document document = Jsoup.parse(html);
@@ -22,22 +22,13 @@ public class PdfUtil {
         return document.html();
     }
 
-    public static void testPdf() {
-        String inputFile = "src/main/resources/test.html"; // Path to your XHTML/XML file
-        String outputFile = "src/main/resources/output.pdf"; // Path to the output PDF file
-
+    public static void convertToPdf(Map<String, String> valueMap, String inputFile, String outputFile) {
         try {
             // Create an ITextRenderer instance
             ITextRenderer renderer = new ITextRenderer();
 
             // Read HTML content from file
             String content = FileUtils.readFileToString(Paths.get(inputFile).toFile(), StandardCharsets.UTF_8);
-
-            // Perform replacements
-            Map<String, String> valueMap = new HashMap<>();
-            valueMap.put("employeeId", "20240200001");
-            valueMap.put("employeeName", "Harish Jay Raj");
-            valueMap.put("startDate", "25-03-2024");
 
             Set<Map.Entry<String, String>> entrySet = valueMap.entrySet();
             for (Map.Entry<String, String> es : entrySet) {

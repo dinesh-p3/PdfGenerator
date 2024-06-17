@@ -1,5 +1,6 @@
 package com.generator.PdfGenerator;
 
+import com.generator.PdfGenerator.util.DRPdfUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,6 +18,8 @@ public class PdfGeneratorApplication {
 		String inputFile = "src/main/resources/test.html"; // Path to your XHTML/XML file
 		String outputFile = "src/main/resources/output.pdf"; // Path to the output PDF file
 		FlyingSaucerPdfUtil.convertToPdf(valueMap, inputFile, outputFile);*/
+		//DR report
+		DRPdfUtil.build();
 	}
 
 }

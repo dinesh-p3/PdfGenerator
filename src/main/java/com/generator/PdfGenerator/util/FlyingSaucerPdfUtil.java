@@ -1,3 +1,4 @@
+/*
 package com.generator.PdfGenerator.util;
 
 import org.apache.commons.io.FileUtils;
@@ -13,7 +14,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Component
-public class PdfUtil {
+public class FlyingSaucerPdfUtil {
 
     private static String htmlToXhtml(String html) {
         // Convert HTML to XHTML
@@ -36,7 +37,7 @@ public class PdfUtil {
             }
 
             // Convert HTML to XHTML
-            String htmlToXhtml = PdfUtil.htmlToXhtml(content);
+            String htmlToXhtml = FlyingSaucerPdfUtil.htmlToXhtml(content);
             renderer.setDocumentFromString(htmlToXhtml);
 
             // Render the document to PDF
@@ -51,3 +52,4 @@ public class PdfUtil {
         }
     }
 }
+*/

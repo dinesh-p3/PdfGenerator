@@ -23,7 +23,6 @@ import static net.sf.dynamicreports.report.builder.DynamicReports.*;
 @Component
 @Slf4j
 public class DRPdfUtil {
-
     private static final Path BASE_DIR = Path.of("/home/dk/Documents/R&D/PdfGenerator/temp/");
     private static final String TIER_REPORT = "TIER_REPORT";
     private static final String PDF_EXTENSION = ".pdf";
@@ -44,8 +43,7 @@ public class DRPdfUtil {
 
             //1
             JasperReportBuilder report = DynamicReports.report();
-            addImage(report, imageInputStream);
-//          report.setBackgroundBackgroundComponent(cmp.image(imageInputStream));
+            addTitleImage(report, imageInputStream);
             report.setPageFormat(PageType.A4, PageOrientation.PORTRAIT);
             report.addTitle(cmp.text("Tier Plan Summary Report"));
             report.addPageFooter(cmp.text("Tier Plan Summary Footer"));
@@ -55,16 +53,6 @@ public class DRPdfUtil {
                             col.column("Unit price", "unitprice", type.bigDecimalType()));
             report.setDataSource(createDataSource());
             report.toPdf(outputStream);
-
-            //2
-          /* report()
-                    .columns(col.column("Item", "item", type.stringType()),
-                            col.column("Quantity", "quantity", type.integerType()),
-                            col.column("Unit price", "unitprice", type.bigDecimalType()))
-                    .title(cmp.text("Getting started"))
-                    .pageFooter(cmp.pageXofY())
-                    .setDataSource(createDataSource())
-                    .toPdf(outputStream); */
         } catch (DRException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {
@@ -74,8 +62,9 @@ public class DRPdfUtil {
         }
     }
 
-    private static void addImage(JasperReportBuilder report, FileInputStream imageInputStream) {
-        report.addTitle(cmp.image(imageInputStream).setHorizontalImageAlignment(HorizontalImageAlignment.RIGHT));
+    private static void addTitleImage(JasperReportBuilder report, FileInputStream imageInputStream) {
+        report.addTitle(cmp.image(imageInputStream)
+                .setHorizontalImageAlignment(HorizontalImageAlignment.RIGHT));
     }
 
     private static JRDataSource createDataSource() {

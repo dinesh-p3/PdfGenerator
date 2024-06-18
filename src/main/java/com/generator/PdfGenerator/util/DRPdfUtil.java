@@ -47,7 +47,7 @@ public class DRPdfUtil {
             addImage(report, imageInputStream);
 //          report.setBackgroundBackgroundComponent(cmp.image(imageInputStream));
             report.setPageFormat(PageType.A4, PageOrientation.PORTRAIT);
-            report.addPageHeader(cmp.text("Tier Plan Summary Report"));
+            report.addTitle(cmp.text("Tier Plan Summary Report"));
             report.addPageFooter(cmp.text("Tier Plan Summary Footer"));
             report
                     .columns(col.column("Item", "item", type.stringType()),

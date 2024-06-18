@@ -43,8 +43,8 @@ public class DRPdfUtil {
 
             //1
             JasperReportBuilder report = DynamicReports.report();
-            addTitleImage(report, imageInputStream);
             report.setPageFormat(PageType.A4, PageOrientation.PORTRAIT);
+            addTitleImage(report, imageInputStream);
             report.addTitle(cmp.text("Tier Plan Summary Report"));
             report.addPageFooter(cmp.text("Tier Plan Summary Footer"));
             report

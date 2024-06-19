@@ -56,7 +56,8 @@ public class DRPdfUtil {
                             col.column("Information as on", "InformationAsOn", type.stringType()),
                             col.column("Billing cycle", "BillingCycle", type.stringType()));
             report.setDataSource(createDataSource1());
-//            report.columnGrid(grid.horizontalColumnGridList());
+//          report.columnGrid(grid.horizontalColumnGridList());
+            report.columns(col.column("Tier Information", "tierInformation", type.stringType()));
             report.pageFooter(cmp.image("Tier Plan Summary Footer"));
             report.pageFooter(cmp.pageXofY());
 
@@ -80,7 +81,7 @@ public class DRPdfUtil {
 
     private static JRDataSource createDataSource1() {
         DRDataSource dataSource = new DRDataSource("GeneratedBy", "GeneratedOn", "InformationAsOn", "BillingCycle");
-        dataSource.add("Daniel kumar", "2024-06-19",  "2024-06-19",  "2024-06-19");
+        dataSource.add("Daniel kumar", "2024-06-19",  "2024-06-19",  "2024-06-19 - 2024-06-20");
         return dataSource;
     }
     private static JRDataSource createDataSource() {

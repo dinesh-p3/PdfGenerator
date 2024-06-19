@@ -3,8 +3,6 @@ package com.generator.PdfGenerator.util;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
 import net.sf.dynamicreports.report.builder.DynamicReports;
-import net.sf.dynamicreports.report.builder.style.ReportStyleBuilder;
-import net.sf.dynamicreports.report.builder.style.StyleBuilder;
 import net.sf.dynamicreports.report.constant.HorizontalImageAlignment;
 import net.sf.dynamicreports.report.constant.PageOrientation;
 import net.sf.dynamicreports.report.constant.PageType;
@@ -25,10 +23,11 @@ import static net.sf.dynamicreports.report.builder.DynamicReports.*;
 @Component
 @Slf4j
 public class DRPdfUtil {
-    private static final Path BASE_DIR = Path.of("/home/dk/Documents/R&D/PdfGenerator/temp/");
+//    private static final Path BASE_DIR = Path.of("/home/dk/Documents/R&D/PdfGenerator/temp/");
+    private static final Path BASE_DIR = Path.of("src/main/resources/temp");
     private static final String TIER_REPORT = "TIER_REPORT";
     private static final String PDF_EXTENSION = ".pdf";
-    private static final String IMAGE_PATH = "src/main/resources/logo_1.png";
+    private static final String IMAGE_PATH = "src/main/resources/logo.png";
 
     public static void build() {
         try {
